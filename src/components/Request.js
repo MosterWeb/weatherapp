@@ -10,7 +10,8 @@ const Request = () => {
     const success = (position) => {
         let lon = position.coords.longitude;
         let lat = position.coords.latitude;
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=255a2683bd5ad3ec6d689e72383cce35`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7bdf7b7f660b2632342a7f983b668a74`;
+
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -44,7 +45,7 @@ const Request = () => {
         <div>
             {(isSpinning) ? <Spinning /> : <Weather city={weather.city} country={weather.country} temperature={weather.temperature} description={weather.description} wind={weather.wind} clouds={weather.clouds} pressure={weather.clouds} icon={weather.icon} img={weather.img} />}
             <p className={(isError) ? "error-message text-center" : "error-message text-center d-none"}>
-            Tuvimos un problema para obtener su ubicación, verifique los permisos haciendo clic en <i className="fas fa-lock"></i> en su navegador
+                Tuvimos un problema para obtener su ubicación, verifique los permisos haciendo clic en <i className="fas fa-lock"></i> en su navegador
             </p>
         </div>
     )
